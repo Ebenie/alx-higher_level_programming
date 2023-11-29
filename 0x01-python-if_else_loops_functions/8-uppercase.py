@@ -1,8 +1,3 @@
-/**
- * uppercase(s) - takes input and prints the string in uppercase
- *
- */
-
 def uppercase(s):
     for char in s:
         if ord('a') <= ord(char) <= ord('z'):
