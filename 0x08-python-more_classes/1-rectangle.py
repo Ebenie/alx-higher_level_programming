@@ -9,7 +9,7 @@ class Rectangle:
     """
     Defines the Rectangle class.
     """
-    def __init__(self, width = 0, height = 0):
+    def __init__(self, width=0, height=0):
         """
         Initializes a new Rectangle instance.
 
@@ -75,4 +75,3 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
-
