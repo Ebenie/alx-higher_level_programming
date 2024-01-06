@@ -6,11 +6,12 @@ Defines a Rectangle class with private attributes width and height.
 
 
 class Rectangle:
+
     """
     Defines the Rectangle class.
     """
     number_of_instances = 0
-    print_symbol = "#"
+    syb = "#"
 
     def __init__(self, width=0, height=0):
         """
@@ -32,7 +33,7 @@ class Rectangle:
         Returns:
         int: The width of the rectangle.
         """
-        return self.__width
+        return self.__wdt
 
     @width.setter
     def width(self, value):
@@ -50,7 +51,7 @@ class Rectangle:
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
-        self.__width = value
+        self.__wdt = value
 
     @property
     def height(self):
@@ -60,7 +61,7 @@ class Rectangle:
         Returns:
         int: The height of the rectangle.
         """
-        return self.__height
+        return self.__hgt
 
     @height.setter
     def height(self, value):
@@ -78,7 +79,7 @@ class Rectangle:
             raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
-        self.__height = value
+        self.__hgt = value
 
     def area(self):
         """
@@ -87,16 +88,16 @@ class Rectangle:
         Returns:
         int: The area of the rectangle.
         """
-        return self.__width * self.__height
+        return self.__wdt * self.__hgt
 
-    def perimeter(self):
+    def per(self):
         """
         Calculates and returns the perimeter of the rectangle.
 
         Returns:
         int: The perimeter of the rectangle.
         """
-        return 2 * (self.__width + self.__height)
+        return 2 * (self.__wdt + self.__hgt)
 
     def __str__(self):
         """
@@ -105,9 +106,9 @@ class Rectangle:
         Returns:
         str: The string representation of the rectangle.
         """
-        if self.__width == 0 or self.__height == 0:
+        if self.__wdt == 0 or self.__hgt == 0:
             return ""
-        return "\n".join([str(self.print_symbol) * self.__width for _ in range(self.__height)])
+        return "\n".join([str(self.syb)*self.__wdt for _ in range(self.__hgt)])
 
     def __repr__(self):
         """
@@ -116,7 +117,7 @@ class Rectangle:
         Returns:
         str: The string representation of the object.
         """
-        return "Rectangle({}, {})".format(self.__width, self.__height)
+        return "Rectangle({}, {})".format(self.__wdt, self.__hgt)
 
     def __del__(self):
         """
@@ -157,20 +158,17 @@ class Rectangle:
     @classmethod
     def square(cls, size=0):
         """
-        Creates a new Rectangle instance with equal width and height.
+        Creates Rectangle instance with equal width & height.
 
         Parameters:
         size (int): The size of the square.
 
         Returns:
-        Rectangle: A new Rectangle instance representing a square.
+        Rectangle: A Rectangle instance representing a square.
         """
         return cls(size, size)
 
-
-# Testing the code
-if __name__ == "__main__":
-    my_square = Rectangle.square(5)
-    print("Area: {} - Perimeter: {}".format(my_square.area(), my_square.perimeter()))
-    print(my_square)
-
+        if __name__ == "__main__":
+            sqr = Rectangle.square(5)
+            print("Area: {} - Perimeter: {}".format(sqr.area(), sqr.per()))
+            print(sqr)
