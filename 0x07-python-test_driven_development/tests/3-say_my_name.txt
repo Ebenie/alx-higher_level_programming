@@ -1,0 +1,28 @@
+#!/usr/bin/python3
+"""
+Module for testing say_my_name function.
+"""
+
+from __main__ import say_my_name
+from io import StringIO
+import sys
+
+
+sys.stdout = StringIO()
+
+
+say_my_name("John", "Smith")
+say_my_name("Walter", "White")
+say_my_name("Bob")
+
+
+try:
+    say_my_name(12, "White")
+except Exception as e:
+    print(e)
+
+
+sys.stdout = sys.__stdout__
+
+
+print(sys.stdout.getvalue(), end="")

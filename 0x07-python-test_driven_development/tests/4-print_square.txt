@@ -1,0 +1,20 @@
+#!/usr/bin/python3
+"""
+Module for testing print_square function.
+"""
+
+from __main__ import print_square
+from io import StringIO
+import sys
+
+sys.stdout = StringIO()
+
+print_square(4)
+print_square(10)
+print_square(0)
+print_square(1)
+print_square(-1)
+
+sys.stdout = sys.__stdout__
+
+print(sys.stdout.getvalue(), end="")
