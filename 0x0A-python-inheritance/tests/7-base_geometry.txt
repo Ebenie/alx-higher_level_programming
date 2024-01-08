@@ -1,0 +1,62 @@
+#!/usr/bin/python3
+"""
+Test cases for 7-base_geometry.py
+"""
+
+import unittest
+from io import StringIO
+from contextlib import redirect_stdout
+from base_geometry import BaseGeometry
+
+class TestBaseGeometry(unittest.TestCase):
+    """
+    Test cases for BaseGeometry class.
+    """
+
+    def setUp(self):
+        """
+        Set up the test environment.
+        """
+        self.obj = BaseGeometry()
+
+    def test_area(self):
+        """
+        Test the area method.
+        """
+        with self.assertRaises(Exception) as context:
+            self.obj.area()
+        self.assertEqual(
+            str(context.exception),
+            "area() is not implemented"
+        )
+
+    def test_integer_validator_valid(self):
+        """
+        Test integer_validator with a valid value.
+        """
+        self.obj.integer_validator("test", 5)  # Should not raise any exception
+
+    def test_integer_validator_invalid_type(self):
+        """
+        Test integer_validator with an invalid type.
+        """
+        with self.assertRaises(TypeError) as context:
+            self.obj.integer_validator("test", "string")
+        self.assertEqual(
+            str(context.exception),
+            "test must be an integer"
+        )
+
+    def test_integer_validator_invalid_value(self):
+        """
+        Test integer_validator with an invalid value.
+        """
+        with self.assertRaises(ValueError) as context:
+            self.obj.integer_validator("test", -3)
+        self.assertEqual(
+            str(context.exception),
+            "test must be greater than 0"
+        )
+
+if __name__ == "__main__":
+    unittest.main()
