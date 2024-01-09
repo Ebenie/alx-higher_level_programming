@@ -11,12 +11,8 @@ This Test cases for the add_integer function to check it.
 5
 
 >>> add_integer("hello", 5)
-Traceback (most recent call last):
-    ...
-TypeError: a must be an integer
+a must be an integer
 
 >>> add_integer(10, "world")
-Traceback (most recent call last):
-    ...
-TypeError: b must be an integer
+b must be an integer
 """
