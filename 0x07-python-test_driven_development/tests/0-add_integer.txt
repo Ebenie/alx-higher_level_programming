@@ -1,24 +1,21 @@
-#!/usr/bin/python3
-"""
-Module for testing add_integer function.
-"""
+>>> add_integer(1, 2)
+3
 
-from __main__ import add_integer
+>>> add_integer(-1, 5)
+4
 
+>>> add_integer(2.5, 3)
+5
 
-print(add_integer(1, 2))
-print(add_integer(100, -2))
-print(add_integer(2))
-print(add_integer(100.3, -2))
+>>> add_integer(10, -5)
+5
 
+>>> add_integer("hello", 5)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
 
-try:
-    print(add_integer(4, "School"))
-except Exception as e:
-    print(e)
-
-try:
-    print(add_integer(None))
-except Exception as e:
-    print(e)
-
+>>> add_integer(10, "world")
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
