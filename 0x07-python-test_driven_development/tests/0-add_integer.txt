@@ -11,11 +11,7 @@
 5
 
 >>> add_integer("hello", 5)
-Traceback (most recent call last):
-    ...
 TypeError: a must be an integer
 
 >>> add_integer(10, "world")
-Traceback (most recent call last):
-    ...
 TypeError: b must be an integer
