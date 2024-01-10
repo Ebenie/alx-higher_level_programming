@@ -2,10 +2,29 @@
 
 def lookup(obj):
     """
-    Returns a list of available attributes and methods of an object.
+    Returns a list of attributes and methods of an object.
 
-    :param obj: The object to look up.
-    :return: A list of attributes and methods.
+    Args:
+    - obj: Any Python object
+
+    Returns:
+    - list: List of attribute and method names
     """
-    return dir(obj)
+    return [n for n in dir(obj) if not callable(getattr(obj, n)) or n.startswith("__")]
 
+
+
+class Example:
+    """
+    Defines the Example class to be inherited.
+    """
+    def __init__(self):
+        self.att = 50
+
+    def method1(self):
+        return "Method 1!"
+
+obj1 = Example()
+
+result = lookup(obj1)
+print(result)
