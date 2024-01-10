@@ -1,8 +1,10 @@
 #!/usr/bin/python3
+"""Defines the function to print first & last name"""
+
 
 def say_my_name(first_name, last_name=""):
     """
-    Prints a message with the given first and last name.
+    Prints or returns a message with the given first and last name.
 
     :param first_name: The first name (string).
     :param last_name: The last name (string, default is an empty string).
@@ -10,13 +12,5 @@ def say_my_name(first_name, last_name=""):
     """
     if not isinstance(first_name, str) or not isinstance(last_name, str):
         raise TypeError("first_name must be a string or last_name must be a string")
-    
+
     print("My name is {} {}".format(first_name, last_name))
-
-if __name__ == "__main__":
-    # Example usage
-    say_my_name("John", "Smith")
-    say_my_name("Walter", "White")
-    say_my_name("Bob")
-
-
