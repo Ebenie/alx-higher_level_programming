@@ -1,62 +1,14 @@
-#!/usr/bin/python3
-"""
-Test cases for 7-base_geometry.py
-"""
+"""The test code """
 
-import unittest
-from io import StringIO
-from contextlib import redirect_stdout
-from base_geometry import BaseGeometry
 
-class TestBaseGeometry(unittest.TestCase):
-    """
-    Test cases for BaseGeometry class.
-    """
+>>> from models.base_geometry import BaseGeometry
 
-    def setUp(self):
-        """
-        Set up the test environment.
-        """
-        self.obj = BaseGeometry()
+>>> bg = BaseGeometry()
+>>> bg.area()
+[Exception] area() is not implemented
 
-    def test_area(self):
-        """
-        Test the area method.
-        """
-        with self.assertRaises(Exception) as context:
-            self.obj.area()
-        self.assertEqual(
-            str(context.exception),
-            "area() is not implemented"
-        )
+>>> bg.integer_validator("test", "string")
+[TypeError] test must be an integer
 
-    def test_integer_validator_valid(self):
-        """
-        Test integer_validator with a valid value.
-        """
-        self.obj.integer_validator("test", 5)  # Should not raise any exception
-
-    def test_integer_validator_invalid_type(self):
-        """
-        Test integer_validator with an invalid type.
-        """
-        with self.assertRaises(TypeError) as context:
-            self.obj.integer_validator("test", "string")
-        self.assertEqual(
-            str(context.exception),
-            "test must be an integer"
-        )
-
-    def test_integer_validator_invalid_value(self):
-        """
-        Test integer_validator with an invalid value.
-        """
-        with self.assertRaises(ValueError) as context:
-            self.obj.integer_validator("test", -3)
-        self.assertEqual(
-            str(context.exception),
-            "test must be greater than 0"
-        )
-
-if __name__ == "__main__":
-    unittest.main()
+>>> bg.integer_validator("test", 0)
+[ValueError] test must be greater than 0
