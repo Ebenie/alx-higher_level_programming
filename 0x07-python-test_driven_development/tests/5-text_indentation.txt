@@ -1,12 +1,31 @@
-text_indentation("This is a sample text. It has multiple sentences. Each sentence should be on a new line.")
 
-text_indentation("Only one sentence in this text.")
+"""
+# Test case 1: Valid text with multiple sentences
+>>> text_indentation("This is a sample text. It has multiple sentences. How are you doing?")
+This is a sample text
 
-text_indentation("Hello! How are you doing? I hope everything is going well. This is a test text with different punctuation marks.")
-try:
-    text_indentation(123)
-except TypeError as e:
-    print(f"Error: {e}")
+It has multiple sentences
 
-text_indentation("")
-text_indentation("This is the last sentence.")
+How are you doing?
+
+# Test case 2: Valid text with different punctuation
+>>> text_indentation("Hello! How are you? What's your name: John.")
+Hello
+
+How are you
+
+What's your name: John
+
+# Test case 3: Empty text
+>>> text_indentation("")
+# (Nothing should be printed)
+
+# Test case 4: Invalid type for text (integer)
+>>> try:
+     text_indentation(123)
+ except Exception as e:
+     print(e)
+Traceback (most recent call last):
+
+TypeError: text must be a string
+"""
