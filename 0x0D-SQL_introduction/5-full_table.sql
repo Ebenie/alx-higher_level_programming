@@ -1,3 +1,3 @@
 -- This display the full description of the table first_table
 -- The database name will be passed as an argument 
-SHOW CREATE TABLE 'first_table';
+SHOW CREATE TABLE `first_table`;
