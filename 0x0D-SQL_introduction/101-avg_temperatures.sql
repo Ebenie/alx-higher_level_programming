@@ -1,8 +1,5 @@
--- This command calculates the average temperature by city from the
--- temperatures table and orders the results by temperature in 
--- descending order
-
-SELECT `city`, AVG(`value`) AS `average_temp` FROM `temperatures`
+-- Displays the average temperature (in Fahrenheit) by city ordered by descending temperature.
+SELECT `city`, AVG(`value`) AS `avg_temp`
+FROM `temperatures`
 GROUP BY `city`
-ORDER BY `average_temp` DESC;
-
+ORDER BY `avg_temp` DESC;
