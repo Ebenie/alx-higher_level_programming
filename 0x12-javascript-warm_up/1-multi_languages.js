@@ -1,5 +1,6 @@
 #!/usr/bin/node
-let first = "C is fun\n";
-let second = "Python is cool\n";
-let third = "JavaScript is amazing\n";
+const first = "C is fun\n";
+const second = "Python is cool\n";
+const third = "JavaScript is amazing\n";
 console.log(first + second + third);
+
