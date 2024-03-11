@@ -1,4 +1,4 @@
 #!/usr/bin/node
-const args = process.argv.slice(2);
-console.log(args.length > 0 ? args[0] : 'No argument');
-
+const arg = process.argv[2];
+const num = parseInt(arg);
+console.log(isNaN(num) ? 'Not a number' : 'My number: ' + num);
