@@ -1,15 +1,18 @@
 #!/usr/bin/python3
-"""Module for State class with a relationship to City class
 """
+Module defining the State class.
+"""
+
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
-from model_city import Base, City
+from relationship_city import Base
 
 class State(Base):
-    """State class to represent states in the US
+    """
+    State class definition.
     """
     __tablename__ = 'states'
-    id = Column(Integer, primary_key=True, nullable=False)
+    id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
     name = Column(String(128), nullable=False)
-    cities = relationship("City", backref="state", cascade="all, delete")
+    cities = relationship("City", back_populates="state", cascade="all, delete")
 
