@@ -7,7 +7,7 @@ if [ -z "$1" ]; then
 fi
 
 # Send request to the URL and store response body
-response_body=$(curl -s -w "%{size_download}" -o /dev/null "$1")
+response_body=$(curl -s -o /dev/null -w "%{size_download}\n" "$1")
 
 # Display the size of the response body in bytes
 echo "$response_body"
