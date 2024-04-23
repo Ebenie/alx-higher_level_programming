@@ -16,10 +16,20 @@ request(apiUrl, (error, response, body) => {
     return;
   }
 
-  const movieData = JSON.parse(body);
-  const characters = movieData.characters;
+  const filmData = JSON.parse(body);
+  const charactersUrls = filmData.characters;
 
-  characters.forEach((characterUrl, index) => {
+  fetchAndPrintCharacters(charactersUrls);
+});
+
+function fetchAndPrintCharacters(charactersUrls) {
+  if (charactersUrls.length === 0) {
+    console.log('No characters found for this movie.');
+    return;
+  }
+
+  let count = 0;
+  charactersUrls.forEach((characterUrl, index) => {
     request(characterUrl, (error, response, body) => {
       if (error) {
         console.error('Error:', error);
@@ -34,11 +44,12 @@ request(apiUrl, (error, response, body) => {
       const characterData = JSON.parse(body);
       console.log(characterData.name);
 
-      // Check if it's the last character, then print newline
-      if (index === characters.length - 1) {
+      // Check if all characters have been printed
+      count++;
+      if (count === charactersUrls.length) {
         console.log('');
       }
     });
   });
-});
+}
 
