@@ -12,3 +12,4 @@ fs.writeFile(filePath, content, 'utf-8', (err) => {
   }
   console.log(`Content has been written to ${filePath}`);
 });
+
