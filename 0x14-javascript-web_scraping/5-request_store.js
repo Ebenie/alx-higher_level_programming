@@ -22,6 +22,5 @@ request(url, (error, response, body) => {
 
       return;
     }
-    console.log(`Content has been saved to ${filePath}`);
   });
 });
