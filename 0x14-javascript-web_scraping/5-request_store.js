@@ -1,3 +1,8 @@
+
+
+
+
+
 #!/usr/bin/node
 
 const fs = require('fs');
@@ -22,6 +27,7 @@ request(url, (error, response, body) => {
       console.error(err);
       return;
     }
-    console.log(`Content has been saved to ${filePath}`);
+    console.log(``);
   });
 });
+
