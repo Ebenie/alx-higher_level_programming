@@ -47,9 +47,7 @@ function fetchAndPrintCharacters(charactersUrls) {
       // Check if all characters have been printed
       count++;
       if (count === charactersUrls.length) {
-        console.log('');
       }
     });
   });
 }
-
