@@ -1,0 +1,44 @@
+#!/usr/bin/node
+
+const request = require('request');
+
+const movieId = process.argv[2];
+const apiUrl = `https://swapi-api.alx-tools.com/api/films/${movieId}/`;
+
+request(apiUrl, (error, response, body) => {
+  if (error) {
+    console.error('Error:', error);
+    return;
+  }
+
+  if (response.statusCode !== 200) {
+    console.error(`Failed to fetch data. Status code: ${response.statusCode}`);
+    return;
+  }
+
+  const movieData = JSON.parse(body);
+  const characters = movieData.characters;
+
+  characters.forEach((characterUrl, index) => {
+    request(characterUrl, (error, response, body) => {
+      if (error) {
+        console.error('Error:', error);
+        return;
+      }
+
+      if (response.statusCode !== 200) {
+        console.error(`Failed to fetch data. Status code: ${response.statusCode}`);
+        return;
+      }
+
+      const characterData = JSON.parse(body);
+      console.log(characterData.name);
+
+      // Check if it's the last character, then print newline
+      if (index === characters.length - 1) {
+        console.log('');
+      }
+    });
+  });
+});
+
